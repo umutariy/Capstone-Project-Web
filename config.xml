@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.brianmartey.eduapp" version="1.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>eduapp</name>
+    <description>
+        An educational app with a difference.
+    </description>
+    <author email="brian.martey@ashesi.edu.gh" href="#">
+        Brian Martey
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+</widget>
