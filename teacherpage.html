@@ -177,6 +177,7 @@
         success: function(data)
           {
             var mystudents = JSON.parse(data);
+            alert(data);
             var as1 = document.getElementById("astu");
             var div1 = document.getElementById("stustat");
             div1.appendChild(document.createTextNode(mystudents.sum));

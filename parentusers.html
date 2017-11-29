@@ -113,8 +113,9 @@
                   <table id="childrenlist">
                     <thead>
                       <tr>
-                        <th width="80">Name</th>
+                        <th width="80">Name</a></th>
                         <th width="200">Class</th>
+                        <th width="200">Teacher</th>
                         <th></th>
                       </tr>
                     </thead>
@@ -166,6 +167,7 @@
       jQuery.get('usersservice.php?cmd=11&id='+id+'&chi='+chi).done(function (lists) {
         var postlist = '<ul class="accordion" data-accordion data-allow-all-closed="true">';
         var myusers = JSON.parse(lists);
+        alert(lists);
         if (myusers.length < 1) {
           postlist+= '<tr>';
           postlist+= '<td>No Child</td>';
@@ -176,6 +178,7 @@
             postlist+= '<tr>';
             postlist+= '<td>'+myusers[i].name+'</td>';
             postlist+= '<td>'+myusers[i].class+'</td>';
+            postlist+= '<td>Tt</td>';
             postlist+= '<td><a id="deletebutton" class="" href="#" onclick="remove('+id+','+myusers[i].id+')">Remove</a></td>';
             postlist+= '</tr>';
             j++;

@@ -76,6 +76,10 @@ class users extends adb{
 		$result = $this->query($strQuery);
 	}
 
+	// function addusertrial($fname, $lname, $username, $level, $parent, $teacher){
+	// 	$strQuery="insert into usertrial set firstName = '$fname', lastName = '$lname', type_of_user = '$level', Parent= '$parent', Teacher='$teacher' username = '$username',password = MD5('$password')";
+	// 	$result = $this->query($strQuery);
+	// }
 	/**
 	*admin get user
 	*@param int level 
