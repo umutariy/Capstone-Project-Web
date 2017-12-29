@@ -113,9 +113,10 @@
                   <table id="childrenlist">
                     <thead>
                       <tr>
-                        <th width="80">Name</a></th>
-                        <th width="200">Class</th>
-                        <th width="200">Teacher</th>
+                        <th >Name</a></th>
+                        <th >Class</th>
+                        <th >Teacher</th>
+                        <th >Action</th>
                         <th></th>
                       </tr>
                     </thead>
@@ -167,7 +168,7 @@
       jQuery.get('usersservice.php?cmd=11&id='+id+'&chi='+chi).done(function (lists) {
         var postlist = '<ul class="accordion" data-accordion data-allow-all-closed="true">';
         var myusers = JSON.parse(lists);
-        alert(lists);
+        //alert(lists);
         if (myusers.length < 1) {
           postlist+= '<tr>';
           postlist+= '<td>No Child</td>';
@@ -178,7 +179,8 @@
             postlist+= '<tr>';
             postlist+= '<td>'+myusers[i].name+'</td>';
             postlist+= '<td>'+myusers[i].class+'</td>';
-            postlist+= '<td>Tt</td>';
+            postlist+= '<td>'+myusers[i].teacher+'</td>';
+            postlist+= '<td><a id="checkbutton" class="" href="#" onclick="check('+id+','+myusers[i].id+')">Check attendance</a></td>';
             postlist+= '<td><a id="deletebutton" class="" href="#" onclick="remove('+id+','+myusers[i].id+')">Remove</a></td>';
             postlist+= '</tr>';
             j++;
@@ -323,6 +325,47 @@
         }, 1000);
       });  
     }
+//#############################################################################################################
+
+
+
+    function remove(id,chi){
+      swal({
+        title: "Remove Student?",
+        type: "warning",
+        showCancelButton: true,
+        closeOnConfirm: false,
+        showLoaderOnConfirm: true,
+      },
+      function(){
+        setTimeout(function(){
+          $.ajax(
+            {
+              type: "POST",
+              url: "usersservice.php",
+              data: "cmd=14&id="+id+"&chi="+chi,
+              success: function(data){
+                swal({
+                  title: "Child removed!",
+                  type: "success"
+                },function(){ 
+                  location.reload();
+                }
+                );
+              }
+            });
+
+        }, 1000);
+      });  
+    }
+
+
+
+
+
+//#############################################################################################################
+
+
 
     function more(){
       if($('#moreselect').is(":checked")){

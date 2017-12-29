@@ -185,7 +185,16 @@ class users extends adb{
 	*@param int id
 	*/
 	function getchildreninfo($id){
-		$strQuery="select u.UID as uid, u.FNAME as fname, u.LNAME as lname, c.cname as name from users as u inner join class as c on c.cno = u.grade where UID = '$id'";
+		$strQuery="select u.UID as uid, u.FNAME as fname, u.LNAME as lname, u.grade as grade, c.cname as name from users as u inner join class as c on c.cno = u.grade where UID = '$id'";
+		$result = $this->query($strQuery);
+	}
+
+	/**
+	*get teacher info by
+	*@param int id
+	*/
+	function getteacherinfo($grade){
+		$strQuery="SELECT FNAME, LNAME FROM users WHERE parents IS NULL AND children IS NULL AND grade = '$grade'";
 		$result = $this->query($strQuery);
 	}
 

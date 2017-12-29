@@ -160,14 +160,17 @@ if (!empty($level)) {
 				$list = $row['children'];
 			}
 			$arraylist = explode(",",$list);
-			for ($i=0; $i < count($arraylist); $i++) { 
+			for ($i=0; $i < count($arraylist); $i++) {
 				$students = $user->getchildreninfo($arraylist[$i]);
-				while ($row = $user->fetch()) {
+				/*while (*/$row = $user->fetch();//) {
 					$data['name'] = $row['fname']." ".$row['lname'];
 					$data['class'] = $row['name'];
 					$data['id'] = $row['uid'];
+					$teacher = $user->getteacherinfo($row['grade']);
+					$row = $user->fetch();
+					$data['teacher'] = $row['FNAME']." ".$row['LNAME'];
 					$moredata[] = $data;
- 				}
+ 				//}
 			}
 			$json_data = $moredata;
 
